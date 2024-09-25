@@ -26,7 +26,9 @@ services:
     image: docker.elastic.co/logstash/logstash:8.12.2
     container_name: logstash
     volumes:
-      - ./logstash/datasets:/usr/share/logstash/datasets
+      - ./logstash/datasets/nutrition/nutrition.conf:/usr/share/logstash/pipeline/nutrition.conf
+      - ./logstash/datasets/products/products.conf:/usr/share/logstash/pipeline/products.conf
+      - ./logstash/datasets/stock_market/stocks.conf:/usr/share/logstash/pipeline/stocks.conf
     ports:
       - "5044:5044"
       - "9600:9600"
